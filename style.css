@@ -1,0 +1,93 @@
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --primary: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --accent: #00d2ff;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+    --success: #22c55e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body {
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at top right, #1e1b4b, var(--bg-dark));
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate { animation: fadeInUp 0.6s ease forwards; }
+
+/* Navigation */
+nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0; z-index: 1000;
+}
+
+nav .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+nav a { color: var(--text-main); text-decoration: none; margin-left: 20px; transition: 0.3s; font-size: 0.9rem; }
+nav a:hover { color: var(--accent); }
+
+/* Containers */
+.container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+/* Cards & Forms */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.85rem; }
+
+input, textarea, select {
+    width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(15, 23, 42, 0.5); color: white; transition: 0.3s;
+}
+
+input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3); }
+
+button, .btn {
+    width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: 600;
+    cursor: pointer; transition: 0.3s transform, 0.3s background;
+    display: inline-block; text-align: center; text-decoration: none;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+/* Challenge Grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+
+.challenge-card {
+    transition: 0.4s; position: relative; overflow: hidden;
+}
+
+.challenge-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+
+.badge {
+    background: rgba(139, 92, 246, 0.2); color: var(--primary);
+    padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;
+}
